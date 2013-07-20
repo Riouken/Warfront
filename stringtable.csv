@@ -1,0 +1,6 @@
+Language,English,German
+
+// Team Status Dialog strings:
+//Language,English,German
+#include "Scripts\TeamStatusDialog\stringtable.csv"
+
