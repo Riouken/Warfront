@@ -19,6 +19,8 @@ disableSerialization;
 
 _display = (uiNamespace getVariable "WF_support_dlg");
 _awacs = _display displayCtrl IDC_WARFRONT_RSCTEXT_1003;
+_awacs ctrlSetText "";
+_awacs ctrlEnable False;
 
 _action = "execVM'client\support\transport\wf_transport_call.sqf'";
 buttonSetAction [2407,_action];
@@ -33,6 +35,7 @@ if (count wf_trans_list > 0) then
 	
 }else
 {
+	_awacs ctrlEnable True;
 	_awacs ctrlSetText "Using AI";
 	_transclr = true;
 };

@@ -10,6 +10,13 @@ if (_cargo == "Land_Cargo40_military_green_F") then {
 	["wf_addAction",[_drop,"WF- FOB Supplies","client\gui\wf_gui_supply_start.sqf"]] call CBA_fnc_globalEvent;
 
 };
+
+if (_cargo == "B_supplyCrate_F") then {
+
+	_drop addAction["<t color='#ff1111'>Virtual Ammobox</t>", "VAS\open.sqf"];
+
+};
+
 /*
 _spwnpos = [(getMarkerPos "air_spawn") select 0, (getMarkerPos "air_spawn") select 1,600];
 

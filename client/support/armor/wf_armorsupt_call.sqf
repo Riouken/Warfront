@@ -1,6 +1,6 @@
 _loc = getMarkerPos "wf_armorsupt_marker";
 
-if (ctrlEnabled 1706) then
+if (ctrlEnabled 1003) then
 {
 
 	// Start up AI airsupport
