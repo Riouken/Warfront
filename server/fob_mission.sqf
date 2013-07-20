@@ -26,7 +26,8 @@ wf_fob_supplies = [
 ["Land_BagFence_Long_F","Bag Long Fence",30],
 ["Land_BagFence_Round_F","Bag Round Fence",20],
 ["Land_BagFence_Short_F","Bag Fence Short",20],
-["Land_BagBunker_Small_F","Small Bunker",20] 
+["Land_BagBunker_Small_F","Small Bunker",8],
+["B_supplyCrate_F","Ammo Box",1]  
 
 ];
 publicVariable "wf_fob_supplies";

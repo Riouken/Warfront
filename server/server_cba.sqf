@@ -5,8 +5,11 @@ if (!isServer) exitWith {};
         
 	_pos =(_this select 0) modelToWorld [9,0,0];
 	_classnm = (_this select 1);
-        _veh = createVehicle [_classnm, _pos, [], 0, "NONE"]; 
-    }
+    _veh = createVehicle [_classnm, _pos, [], 0, "NONE"];
+	if (_classnm == "B_supplyCrate_F") then {
+		_veh addAction["<t color='#ff1111'>Virtual Ammobox</t>", "VAS\open.sqf"];
+		};
+  }
     ] call CBA_fnc_addEventHandler;
 
 
