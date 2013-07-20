@@ -31,17 +31,22 @@ if (!isServer) exitWith {};
 // Below is from F2KSel        
 if (!isServer) exitWith {};
 
+
+
+//Temp disable this till I can get a better version working.
+
   private "_ammo";
 
-_ammotype = (_this select 0); // type of ammo
-_height   = (_this select 1); // height of drop
+_ammotype =  "HelicopterExploSmall";   //(_this select 0); // type of ammo
+_height   =  0;     //(_this select 1); // height of drop
 _rounds   = (_this select 2); // how many
 _spread   = (_this select 3); // area
 _pos  = (_this select 4);// land position 
 
+/*
 switch (_ammotype) do {
-	case 0:{_ammo = "Sh_120mm_HE"};
-      case 1:{_ammo = "Sh_105_HE"};
+	case 0:{_ammo = "HelicopterExploSmall"};
+      case 1:{_ammo = "Sh_120mm_HE"};
       case 2:{_ammo = "Bo_GBU12_LGB"};
       case 3:{_ammo = "M_Stinger_AA"};
       case 4:{_ammo = "R_80mm_HE"};
@@ -50,13 +55,18 @@ switch (_ammotype) do {
       case 7:{_ammo = "Bo_FAB_250"};
       case 8:{_ammo = "Grenade"};
             };
-      
+      */
+	  
+	  
 	for "_x" from 1 to _rounds do {
-		sleep random 0.8;
-		_bomb = _ammo createVehicle [( _pos select 0)+(random _spread)-_spread/2, (_pos select 1)+(random _spread)-_spread/2,_height];
+		sleep random 4;
+		
+		//
+		_bomb = _ammotype createVehicle [( _pos select 0)+(random _spread)-_spread/2, (_pos select 1)+(random _spread)-_spread/2,_height];
 		_bomb setVectorUp [0, 9, 0.1];
 	};
     }
+\
     ] call CBA_fnc_addEventHandler;
 	
 	
