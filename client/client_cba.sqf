@@ -206,7 +206,31 @@ wf_client_cba = false;
 	}
 	] call CBA_fnc_addLocalEventHandler;
 
+["wf_mission_fail", 
+  { 
+       
+	COMMAND=[West,"HQ"];
+	COMMAND sideChat (_this select 0);
 
+	_linebreak = "<br/>";
+	//_color_black = "<t color='#f0000000'>";
+	_color_white = "<t color='#f0ffffff'>";
+	_color_red = "<t color='#f0ff0000'>";
+	//_color_green = "<t color='#f000ff00'>";
+	_color_blue = "<t color='#f00000ff'>";
+	//_text_size = "<t size='%1'>";
+	_text_normal = "</t>";
+	_image = "<img size='4' image='%1'/>";
+	
+
+	_StructuredString = _color_red + "Mission Failed" + _linebreak + _color_white + format[_image,"\A3\ui_f\data\gui\Rsc\RscDisplayArcadeMap\icon_exit_cross_ca.paa"] + _linebreak + _color_red + "Regroup and check back later for more orders!" +_text_normal;
+
+	_StructuredText = parseText _StructuredString;
+    
+	hint _StructuredText;
+        
+    }
+    ] call CBA_fnc_addEventHandler;
 
 
 

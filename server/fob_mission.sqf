@@ -54,7 +54,7 @@ _trg = createTrigger["EmptyDetector",_loc];
 _trg setTriggerType "NONE";
 _trg setTriggerArea[250,250,0,false];
 _trg setTriggerActivation["EAST SEIZED","PRESENT",true];
-_trg setTriggerStatements["this", "hint 'Test Trigger';wf_fob_mission_failed = true;wf_mission_complete = true;wf_fob_setup = false;", ""];
+_trg setTriggerStatements["this", "wf_fob_mission_failed = true;wf_fob_setup = false;['wf_mission_fail', ['You have lost control of the FOB location, we will need to set up a new one in a diffrent location!']] call CBA_fnc_globalEvent;", ""];
 _trg setTriggerTimeout [180, 360, 720, true];
 
 waitUntil {wf_fob_mission_failed};

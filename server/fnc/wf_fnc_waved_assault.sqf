@@ -113,7 +113,7 @@ for [{_i=0}, {_i < 7}, {_i=_i+1}] do
 
 
 
-	sleep 90;
+	sleep 300;
 	};
 
 sleep 300;

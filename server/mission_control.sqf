@@ -1,5 +1,5 @@
 if (!isServer) exitWith {};
-if (time < 15) exitWith {};
+if (time < 5) exitWith {};
 
 if (wf_debug) then
 	{
@@ -9,6 +9,7 @@ if (wf_debug) then
 if (!wf_fob_setup) then 
 	{
 		// New fob mission
+		sleep 15;
 		_nul = execVM "server\fob_mission.sqf";
 		if (wf_debug) then
 			{
@@ -25,12 +26,15 @@ if (wf_fob_mission_complete && wf_sec_mission_complete) then
 
 		if (_coinflip >=5) then
 		{
+			//Temp disable the towns due to stratus only haveing one real town.
 			_nul = execVM "server\patrol_mission.sqf";
-			hint "spawning Patrol mission";
+			//hint "spawning Patrol mission";
 		} else
 		{
-			_nul = execVM "server\town_mission.sqf";
-			hint "spawning Town mission";
+			//Temp disable the towns due to stratus only haveing one real town.
+			//_nul = execVM "server\town_mission.sqf";
+			_nul = execVM "server\patrol_mission.sqf";
+			//hint "spawning Town mission";
 		};
 		
 	};
