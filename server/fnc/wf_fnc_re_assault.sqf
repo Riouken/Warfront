@@ -129,3 +129,7 @@ if (wf_debug) then
 	{
 		hint "Finished FOB Assault";
 	};
+
+	
+
+wf_re_assault = false;	
