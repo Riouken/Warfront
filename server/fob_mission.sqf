@@ -34,7 +34,8 @@ wf_fob_supplies = [
 ];
 publicVariable "wf_fob_supplies";
 
-["wf_addAction",[atv1,"WF- FOB Supplies","client\gui\wf_gui_supply_start.sqf"]] call CBA_fnc_globalEvent;
+// For testing
+//["wf_addAction",[atv1,"WF- FOB Supplies","client\gui\wf_gui_supply_start.sqf"]] call CBA_fnc_globalEvent;
 
 _trg = createTrigger["EmptyDetector",_loc];
 _trg setTriggerType "NONE";

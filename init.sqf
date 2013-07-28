@@ -1,3 +1,4 @@
+call compileFinal preprocessFileLineNumbers "FAR_revive\FAR_revive_init.sqf";
 _nul = [] execVM "client\client_init.sqf";
 _nul = [] execVM "server\server_init.sqf";
 
@@ -18,4 +19,5 @@ wf_current_mission = [];
 Resistance setFriend [East, 1];
 East setFriend [Resistance, 1];
 WEST setFriend [RESISTANCE, 0];
-WEST setFriend [East, 0];    
+WEST setFriend [East, 0];
+
