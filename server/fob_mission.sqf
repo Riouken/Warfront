@@ -4,6 +4,8 @@ wf_fob_setup = true;
 
 wf_fob_wop = false;  // Waiting on players var.
 
+Private ["_loc","_starttime","_trg","_nul"];
+
 _loc = locationPosition (wf_locs call BIS_fnc_selectRandom);
 
 wf_active_fob_loc = _loc;

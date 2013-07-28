@@ -3,10 +3,13 @@ if (!isServer) exitWith {};
 wf_mission_complete = false;
 wf_sec_mission_complete = false;
 
-_loc = wf_active_fob_loc;
-_nearbyLocations = nearestLocations [_loc, ["FlatAreaCity","FlatAreaCitySmall","CityCenter","NameCityCapital","NameCity","NameVillage","NameLocal"], 3000];
+//_loc = wf_active_fob_loc;
+/_nearbyLocations = nearestLocations [_loc, ["FlatAreaCity","FlatAreaCitySmall","CityCenter","NameCityCapital","NameCity","NameVillage","NameLocal"], 3000];
 
-_loc = locationPosition (_nearbyLocations call BIS_fnc_selectRandom);
+//_loc = locationPosition (_nearbyLocations call BIS_fnc_selectRandom);
+
+_loc = getMarkerPos "big_town";
+
 ["wf_newtownmission", ["Local contacts have reported enemy combatants have taken over a nearby town... Move to the town and enguage any enemy combatants.",_loc]] call CBA_fnc_globalEvent;
 
 wf_current_mission = ["town","There has been an increase in enemy activity in the area noted... Patrol the area and attack any enemy you encounter",_loc];

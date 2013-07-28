@@ -1,3 +1,6 @@
+Private ["_obj","_pos","_smoke"];
+
+
 _obj = _this select 0;
 _pos = getPosAtl _obj;
 

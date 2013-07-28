@@ -2,6 +2,7 @@
 
 for [{_i=0}, {(count ripftcnt) <= ftgrpcnt}, {_i=_i+1}] do {
 
+		Private ["_pos","_grp","_ripgrpi"];
         _pos = (locationPosition(rip_strong_loc select (floor(random strgcnt))));
         _grp = rip_ft;
         _ripgrpi = [_pos, EAST, _grp] call BIS_fnc_spawnGroup;
@@ -10,6 +11,7 @@ for [{_i=0}, {(count ripftcnt) <= ftgrpcnt}, {_i=_i+1}] do {
         [_ripgrpi, (getPos leader _ripgrpi), (750 + (random 400))] call BIS_fnc_taskPatrol;
         if (rip_debug) then {
             
+			Private ["_markname","_grpsdbg"];
             _markname = "ripgrp" + str (random 999); 
             _grpsdbg = createMarker[_markname,_pos];
             _grpsdbg setMarkerShapeLocal "ICON";
@@ -32,7 +34,8 @@ if (wf_Param_Ai_Aim != 0) then {
 
 
 for [{_j=0}, {(count ripsqdcnt) <= sqdgrpcnt}, {_j=_j+1}] do {
-
+		
+		Private ["_pos","_grp","_ripgrpi"];
         _pos = (locationPosition(rip_strong_loc select (floor(random strgcnt))));
         _grp = rip_sqd;
         _ripgrpi = [_pos, EAST, _grp] call BIS_fnc_spawnGroup;
@@ -41,6 +44,7 @@ for [{_j=0}, {(count ripsqdcnt) <= sqdgrpcnt}, {_j=_j+1}] do {
         rip_act_grps = rip_act_grps + [_ripgrpi];
         if (rip_debug) then {
             
+			Private ["_markname","_grpsdbg"];
             _markname = "ripgrp" + str (random 999); 
             _grpsdbg = createMarker[_markname,_pos];
             _grpsdbg setMarkerShapeLocal "ICON";
@@ -61,6 +65,7 @@ if (wf_Param_Ai_Aim != 0) then {
 
 for [{_k=0}, {(count ripaacnt) <= aagrpcnt}, {_k=_k+1}] do {
         
+		Private ["_pos","_grp","_ripgrpi"];
         _pos = (locationPosition(rip_strong_loc select (floor(random strgcnt))));
         _grp = rip_aa;
         _ripgrpi = [_pos, EAST, _grp] call BIS_fnc_spawnGroup;
@@ -69,6 +74,7 @@ for [{_k=0}, {(count ripaacnt) <= aagrpcnt}, {_k=_k+1}] do {
         [_ripgrpi, (getPos leader _ripgrpi), (750 + (random 400))] call BIS_fnc_taskPatrol;
         if (rip_debug) then {
             
+			Private ["_markname","_grpsdbg"];
             _markname = "ripgrp" + str (random 999); 
             _grpsdbg = createMarker[_markname,_pos];
             _grpsdbg setMarkerShapeLocal "ICON";
@@ -89,6 +95,7 @@ if (wf_Param_Ai_Aim != 0) then {
 
 for [{_p=0}, {(count ripsniprcnt) <= snipgrpcnt}, {_p=_p+1}] do {
         
+		Private ["_pos","_grp","_ripgrpi"];
         _pos = (locationPosition(rip_strong_loc select (floor(random strgcnt))));
         _grp = rip_snipr;
         _ripgrpi = [_pos, EAST, _grp] call BIS_fnc_spawnGroup;
@@ -97,6 +104,7 @@ for [{_p=0}, {(count ripsniprcnt) <= snipgrpcnt}, {_p=_p+1}] do {
         [_ripgrpi, (getPos leader _ripgrpi), (750 + (random 400))] call BIS_fnc_taskPatrol;
         if (rip_debug) then {
             
+			Private ["_markname","_grpsdbg"];
             _markname = "ripgrp" + str (random 999); 
             _grpsdbg = createMarker[_markname,_pos];
             _grpsdbg setMarkerShapeLocal "ICON";

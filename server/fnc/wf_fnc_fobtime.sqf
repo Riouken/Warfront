@@ -1,6 +1,13 @@
-_starttime = missionNamespace getVariable "wf_fob_starttime";
-_currenttime = time;
+private ["_currenttimeFnc","_fobtimeFnc","_starttimeFnc"];
 
-_fobtime = _currenttime - _starttime;
+_starttimeFnc = missionNamespace getVariable ["wf_fob_starttime",0];
+_currenttimeFnc = time;
 
-_fobtime;
+if (_starttimeFnc == 0 ) then 
+	{
+		_fobtimeFnc = 0;
+	} else
+	{
+		_fobtimeFnc = _currenttimeFnc - _starttimeFnc;
+	};
+_fobtimeFnc

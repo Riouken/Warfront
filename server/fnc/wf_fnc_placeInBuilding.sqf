@@ -32,6 +32,8 @@ v0.1 - First version of the script.
 ==========================================================================
 */
 
+Private ["_group","_leader","_check_distance","_arr_buildings","_buildingcount","_arr_positions"];
+
 _group = _this select 0;
 
 _leader = leader _group;
@@ -43,6 +45,7 @@ _buildingcount = count _arr_buildings;
 
 _arr_positions = [];
 {
+	Private ["_i","_positions_checked","_position","_coord_x","_coord_y","_coord_z","_coord_sum"];
 	_i = 0;
 	_positions_checked = FALSE;
 	while {not _positions_checked} do {
@@ -61,6 +64,7 @@ _arr_positions = [];
 } foreach _arr_buildings;
 
 {
+	Private ["_newgroup","_position"];
 	_newgroup = createGroup east;
 	
 	[_x] join _newgroup;

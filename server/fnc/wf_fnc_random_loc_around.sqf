@@ -1,3 +1,6 @@
+
+Private ["_basepoint","_basenum","_minnum","_spawnLoc","_posInWater"];
+
 _basepoint = _this select 0;
 _basenum = 600;
 _minnum = 450;
@@ -15,6 +18,7 @@ _spawnLoc = [];
 _posInWater = true;
 while {_posInWater} do
 	{ 
+		Private ["_dist","_dir","_isInWater"];
 		_dist = (floor (random _basenum)) + _minnum;
 		_dir = random 360;
 
@@ -26,10 +30,11 @@ while {_posInWater} do
 
 			if (wf_debug && ! _isInWater) then {
             
-            			_markname = "asslt_grp" + str (random 999); 
-            			_grpsdbg = createMarker[_markname,_spawnLoc];
-            			_grpsdbg setMarkerShapeLocal "ICON";
-            			_grpsdbg setMarkerTypeLocal "DOT";
+					Private ["_markname","_grpsdbg",""];	
+            		_markname = "asslt_grp" + str (random 999); 
+            		_grpsdbg = createMarker[_markname,_spawnLoc];
+            		_grpsdbg setMarkerShapeLocal "ICON";
+            		_grpsdbg setMarkerTypeLocal "DOT";
            			_grpsdbg setMarkerColorLocal "ColorRed";
            			_grpsdbg setMarkerTextLocal _markname;
     			};

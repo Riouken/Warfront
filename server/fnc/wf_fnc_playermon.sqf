@@ -4,6 +4,8 @@ wf_lightarmr_active = false;
 wf_air_active = false;
 wf_airtrans_active = false;
 
+Private ["_unitlist","_playerlist"];
+
 _unitlist = playableUnits;
 _playerlist = [];
 wf_armr_list = [];
@@ -22,7 +24,7 @@ wf_trans_list = [];
 	if (isPlayer _x) then
 	{
 		_playerlist = _playerlist + [_x];
-		if (vehicle _x isKindOf "Wheeled_APC") then {wf_armr_active = true;wf_armr_list set [count wf_armr_list, _x];};
+		if (vehicle _x isKindOf "Wheeled_APC_F") then {wf_armr_active = true;wf_armr_list set [count wf_armr_list, _x];};
 		if (vehicle _x isKindOf "Truck_F") then {wf_lightarmr_active = true;};
 		//if (vehicle _x isKindOf "Plane") then {wf_air_active = true;wf_air_list set [count wf_air_list, _x];};
 		if (vehicle _x isKindOf "Heli_Attack_01_base_F") then {wf_air_active = true;wf_air_list set [count wf_air_list, _x];};
@@ -48,6 +50,7 @@ if (wf_plrcount > 35) then {wf_difficulty = 5;};
 
 if (wf_debug) then {
 
+	Private ["_text","_text2"];
 	_text = format ["Warfront - player monitor working - player count: %1 - Armor: %2 - Air: %3 - Diff Level: 	%4",wf_plrcount,wf_armr_active,wf_air_active,wf_difficulty];
 
 	["wf_globalchat", [_text]] call CBA_fnc_globalEvent;

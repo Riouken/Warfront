@@ -2,7 +2,7 @@ if (!isServer) exitWith {};
 
 ["wf_create_supply_item", 
   { 
-        
+    Private ["_pos","_classnm","_veh"];    
 	_pos =(_this select 0) modelToWorld [9,0,0];
 	_classnm = (_this select 1);
     _veh = createVehicle [_classnm, _pos, [], 0, "NONE"];
@@ -15,7 +15,7 @@ if (!isServer) exitWith {};
 
 ["wf_client_supply_drop", 
   { 
-        
+    Private ["_pos","_classnm","_nul"];    
 	_pos =(_this select 0);
 	_classnm = (_this select 1);
         _nul = [_pos,_classnm] spawn wf_fnc_fob_air_drop; 
@@ -35,7 +35,7 @@ if (!isServer) exitWith {};
 
 //Temp disable this till I can get a better version working.
 
-  private "_ammo";
+  Private ["_ammotype","_height","_rounds","_spread","_pos"];
 
 _ammotype =  "HelicopterExploSmall";   //(_this select 0); // type of ammo
 _height   =  0;     //(_this select 1); // height of drop
@@ -61,7 +61,7 @@ switch (_ammotype) do {
 	for "_x" from 1 to _rounds do {
 		sleep random 4;
 		
-		//
+		Private "_bomb";
 		_bomb = _ammotype createVehicle [( _pos select 0)+(random _spread)-_spread/2, (_pos select 1)+(random _spread)-_spread/2,_height];
 		_bomb setVectorUp [0, 9, 0.1];
 	};

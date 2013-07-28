@@ -1,4 +1,5 @@
 if (isDedicated) exitWith {};
+if (true) exitWith {hint "Parajump is disabled right now due to bug in A3... Will be added back soon.";};
 
 closeDialog 0;
 
@@ -18,8 +19,26 @@ player moveincargo _heli;
 
 if (vehicle player == player) exitWith {};
 
-_plr = player;
-_plr setvelocity [0,0,0];
+
+
+_ruck = unitBackpack player; 
+_class = typeOf _ruck;
+_ruckGear = backpackItems player;
+player addBackPack "B_Parachute";
+
+hint str _ruckGear;
+
+deleteVehicle _ruck;
+
+//_ruck attachTo [player,[.1,-.3,0]]; 
+//_ruck setVectorUp [0, .25, 0];
+//_ruck setDir 180;
+
+player setvelocity [0,0,0];
+
+sleep 1;
+
+player action ["EJECT", vehicle player];
 
 //_nul = [_heli, player] execVM "x\ace\addons\sys_eject\jumpout.sqf";
 
@@ -28,3 +47,10 @@ _plr setvelocity [0,0,0];
 sleep 3;
 
 deleteVehicle _heli;
+
+waitUntil {getPosAtl player select 2 < 1};
+
+
+deleteVehicle _ruck;
+
+player addBackPack _class;

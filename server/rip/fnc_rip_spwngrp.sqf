@@ -1,3 +1,5 @@
+Private ["_pos","_grp","_ripgrpi"];
+
 
          _pos = (locationPosition(rip_strong_loc select (floor(random strgcnt))));
         _grp = (rip_grps select (floor(random (count rip_grps))));

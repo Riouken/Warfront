@@ -1,3 +1,6 @@
+Private ["_attackLoc","_spawnLoc","_lightarmor","_heavyarmor","_air"];
+
+
 _attackLoc = _this select 0;
 _spawnLoc = [];
 
@@ -22,6 +25,7 @@ for [{_i=0}, {_i < 7}, {_i=_i+1}] do
 		
 		for [{_j=0}, {_j <= wf_difficulty}, {_j=_j+1}] do 
 			{
+				Private ["_loc","_grp","_nul"];
 				_loc = [_attackLoc] call wf_fnc_random_loc_around;
 				_grp = [_loc, EAST, ["O_Soldier_TL_F", "O_Soldier_F","O_Soldier_AR_F","O_Soldier_F"]] call BIS_fnc_spawnGroup;
 				_nul = [_grp,_attackLoc] call BIS_fnc_taskAttack;
@@ -45,6 +49,7 @@ for [{_i=0}, {_i < 7}, {_i=_i+1}] do
 
 		if (! _lightarmor && wf_lightarmr_active && (_i > 0)) then
 			{
+				Private ["_ligtarmorloc","_vehlist","_veh","_veharray","_nul"];
 				_lightarmor = true;
 				_ligtarmorloc = [_attackLoc] call wf_fnc_random_loc_around;
 				_vehlist = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F"];
@@ -61,6 +66,7 @@ for [{_i=0}, {_i < 7}, {_i=_i+1}] do
 
 		if (! _heavyarmor && wf_armr_active && (_i >= 2)) then
 			{
+				Private ["_hvyarmorloc","_vehlist","_veh","_veharray","_nul"];
 				_heavyarmor = true;
 				_hvyarmorloc = [_attackLoc] call wf_fnc_random_loc_around;
 				_vehlist = ["O_APC_Wheeled_02_rcws_F"];
@@ -76,6 +82,7 @@ for [{_i=0}, {_i < 7}, {_i=_i+1}] do
 
 		if (! _air && wf_air_active && (_i >= 4)) then
 			{
+				Private ["_airloc","_vehlist","_veh","_veharray","_nul"];
 				_air = true;
 				_airloc = [_attackLoc] call wf_fnc_random_loc_around;
 				_vehlist = ["O_Heli_Attack_02_F"];
@@ -95,7 +102,7 @@ for [{_i=0}, {_i < 7}, {_i=_i+1}] do
 
 		if (_randflip >= 5) then
 			{
-
+				Private ["_ligtarmorloc","_vehlist","_veh","_veharray","_nul"];
 				_ligtarmorloc = [_attackLoc] call wf_fnc_random_loc_around;
 				_vehlist = ["O_MRAP_02_hmg_F"];
 				_veh = _vehlist select (floor (random (count _vehlist))); 

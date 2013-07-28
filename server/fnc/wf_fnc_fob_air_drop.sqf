@@ -1,3 +1,5 @@
+Private ["_loc","_cargo","_drop"];
+
 _loc = _this select 0;
 _cargo = _this select 1;
 

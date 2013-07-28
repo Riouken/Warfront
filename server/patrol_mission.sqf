@@ -3,6 +3,8 @@ if (!isServer) exitWith {};
 wf_mission_complete = false;
 wf_sec_mission_complete = false;
 
+Private ["_loc","_nearbyLocations","_rand","_loops","_trg"];
+
 _loc = wf_active_fob_loc;
 _nearbyLocations = nearestLocations [_loc, ["Strategic","FlatArea","NameMarine","ViewPoint","RockArea","BorderCrossing"], 3000];
 
@@ -22,7 +24,7 @@ for [{_i=0}, {_i <= _loops}, {_i=_i+1}] do
 	
 		for [{_j=0}, {_j <= _rand}, {_j=_j+1}] do 
 			{
-
+				Private ["_pos","_grp","_nul"];
 				_pos = [_loc,1000,100] call wf_fnc_random_loc_around;
 				_grp = [_pos, EAST, ["O_Soldier_TL_F", "O_Soldier_F","O_Soldier_AR_F","O_Soldier_F"]] call BIS_fnc_spawnGroup;
 				_nul = [_grp, _pos, 1000] call bis_fnc_taskPatrol;
@@ -44,7 +46,7 @@ for [{_i=0}, {_i <= _loops}, {_i=_i+1}] do
 
 if (wf_lightarmr_active) then 
 	{
-		
+		Private ["_ligtarmorloc","_vehlist","_veh","_veharray","_nul"];
 		_ligtarmorloc = [_loc,1500,100] call wf_fnc_random_loc_around;
 		_vehlist = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F"];
 		_veh = _vehlist select (floor (random (count _vehlist))); 
@@ -55,7 +57,7 @@ if (wf_lightarmr_active) then
 
 if (wf_armr_active) then 
 	{
-		
+		Private ["_hvyarmorloc","_vehlist","_veh","_veharray","_nul"];
 		_hvyarmorloc = [_loc,1500,100] call wf_fnc_random_loc_around;
 		_vehlist = ["O_APC_Wheeled_02_rcws_F"];
 		_veh = _vehlist select (floor (random (count _vehlist))); 
@@ -66,7 +68,7 @@ if (wf_armr_active) then
 
 if (wf_air_active) then 
 	{
-		
+		Private ["_airloc","_vehlist","_veh","_veharray","_nul"];
 		_airloc = [_loc,1500,100] call wf_fnc_random_loc_around;
 		_vehlist = ["O_Heli_Attack_02_F"];
 		_veh = _vehlist select (floor (random (count _vehlist))); 

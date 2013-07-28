@@ -10,6 +10,7 @@ while {true} do {
     
     sleep 3;
     
+	Private ["_rip_grp_stgth","_my2string","_text"];
     _rip_grp_stgth =((count rip_act_grps) / totalgrps);
     
     if (rip_debug) then { 

@@ -18,7 +18,7 @@ wf_difficulty = 1;
 wf_fob_setup = false;
 wf_mission_complete = true;
 wf_fob_mission_failed = false;
-//wf_debug = true;
+wf_debug = false;
 wf_enemy_class = "";
 wf_fob_mission_complete = false;
 wf_sec_mission_complete = true;
@@ -28,7 +28,7 @@ wf_trans_list = [];
 wf_air_list = [];
 wf_re_assault = false;
 
-//rip_debug = true;
+rip_debug = false;
 _cba = [] execVM "server\server_cba.sqf";
 
 _nul = [] execVM "server\wf_remove_dead.sqf";
@@ -66,6 +66,7 @@ wf_locs = nearestLocations [getMarkerPos "map_center", ["Strategic","Strongpoint
 wf_bad_locs = nearestLocations [getMarkerPos "respawn_west", ["Strategic","StrongpointArea","FlatArea","Hill","ViewPoint","RockArea"], 250];
 
 wf_locs = wf_locs - wf_bad_locs;
+
 _ripgo = [15,11,1,6] execVM "server\rip\rip_init.sqf";
 
 
